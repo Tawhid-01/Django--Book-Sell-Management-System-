@@ -1,0 +1,17 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+{% for p in data %}
+<div class="card" style="width: 18rem;">
+    {% if p.image %}
+    <img src="{{ p.image.url }}" class="card-img-top" alt="{{ p.full_name }}">
+    {% endif %}
+    <div class="card-body">
+        <h3 class="card-title">{{ p.full_name }}</h3>
+        <h4>{{ p.occupation }}</h4>
+        <p class="card-text">{{ p.address }}</p>
+        <a href="#" class="btn btn-primary">{{ p.user }}</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}
