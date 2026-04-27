@@ -36,10 +36,8 @@ class SellBookModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        # Automatic calculation logic
         self.total = self.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
-        # Fixed: Changed selled_by to sell_by to match the field name above
         return f"{self.book.book_name} sold by {self.sell_by.username}"
